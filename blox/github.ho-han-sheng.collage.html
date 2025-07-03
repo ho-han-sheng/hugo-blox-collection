@@ -23,7 +23,7 @@
 {{ $folder := index $params.filters.folders 0 }}
 {{ $page := site.GetPage (printf "%s" $folder) }}
 
-<div class="masonry">
+<div class="collage">
   {{ with $params.title }}
   <div class="col-md-12 section-heading">
     <h1>{{ . | markdownify | emojify }}</h1>
