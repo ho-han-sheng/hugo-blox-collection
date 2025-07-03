@@ -3,6 +3,11 @@ module:
     - source: blox
       target: layouts/partials/blox/community/
       includeFiles: '**.html'
+
+    - source: blox
+      target: layouts/partials/blocks/
+      includeFiles: '**.html'
+
     - source: blox
       target: assets/dist/community/blox/
       includeFiles: '**.css'
