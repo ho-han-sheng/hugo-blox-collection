@@ -1,7 +1,7 @@
 module:
   mounts:
     - source: blox
-      target: layouts/partials/blox/community/
+      target: layouts/partials/blocks/
       includeFiles: '**.html'
     - source: blox
       target: assets/dist/community/blox/
