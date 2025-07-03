@@ -1,3 +1,3 @@
-module github.com/ho-han-sheng/hugo-blox-collection/v0.0.1
+module github.com/hugo-blox/create-blox
 
 go 1.19
