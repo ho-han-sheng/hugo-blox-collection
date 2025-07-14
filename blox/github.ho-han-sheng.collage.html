@@ -1,6 +1,6 @@
 {{/* layouts/partials/blocks/collage.html */}}
 
-<section id="{{ .id }}" class="collage">
+<section id="{{ .id | default "collage" }}" class="collage">
   <div class="container">
     {{ with .content.title }}
       <h2>{{ . }}</h2>
@@ -8,17 +8,17 @@
 
     <div class="row">
       {{ $folder := index .content.filters.folders 0 }}
-      {{ $page := site.GetPage (printf "media/%s" $folder) }}
+      {{ $images := resources.Match (printf "media/%s/*.{jpg,jpeg,png,webp}" $folder) }}
 
-      {{ if $page }}
-        {{ range $page.Resources.Match "*" }}
+      {{ if $images }}
+        {{ range $images }}
           {{ $img := .Resize "600x" }}
           <div class="col-md-4 col-sm-6 mb-4">
             <img src="{{ $img.RelPermalink }}" class="img-fluid rounded shadow-sm" alt="{{ .Name }}">
           </div>
         {{ end }}
       {{ else }}
-        <p>No images found in folder <code>{{ $folder }}</code>.</p>
+        <p>No images found in assets/media/<code>{{ $folder }}</code>.</p>
       {{ end }}
     </div>
   </div>
